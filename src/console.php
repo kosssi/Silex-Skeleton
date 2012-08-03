@@ -9,13 +9,13 @@ use Symfony\Component\Console\Input\InputOption;
 $console = new Application('My Silex Application', 'n/a');
 
 $console
-    ->register('my-command')
+    ->register('twig:clear')
     ->setDefinition(array(
-        // new InputOption('some-option', null, InputOption::VALUE_NONE, 'Some help'),
+    // new InputOption('some-option', null, InputOption::VALUE_NONE, 'Some help'),
     ))
-    ->setDescription('My command description')
+    ->setDescription('Clear twig cache file')
     ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
-        // do something
+        $app['twig']->clearCacheFiles();
     })
 ;
 

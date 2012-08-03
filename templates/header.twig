@@ -1,0 +1,11 @@
+<header>
+    <nav>
+        <ul id="menu" class="cadre">
+            {% for route, page in app.pages %}
+            <li{% if route == app.request.get('_route') %} class="actif"{% endif %}>
+                <a href="/{{ route }}">{{ page.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

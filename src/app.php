@@ -4,10 +4,14 @@ use Silex\Application;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
 use Silex\Provider\ValidatorServiceProvider;
+use Silex\Provider\SessionServiceProvider;
 
 $app = new Application();
+
 $app->register(new UrlGeneratorServiceProvider());
 $app->register(new ValidatorServiceProvider());
+$app->register(new SessionServiceProvider());
+
 $app->register(new TwigServiceProvider(), array(
     'twig.path'    => array(__DIR__.'/../templates'),
     'twig.options' => array('cache' => __DIR__.'/../cache'),
@@ -17,5 +21,12 @@ $app['twig'] = $app->share($app->extend('twig', function($twig, $app) {
 
     return $twig;
 }));
+
+$app->register(new Silex\Provider\DoctrineServiceProvider(), array(
+    'db.options' => array(
+        'driver'   => 'pdo_sqlite',
+        'path'     => __DIR__.'/app.db',
+    ),
+));
 
 return $app;

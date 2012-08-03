@@ -1,12 +1,21 @@
 {
-    "name": "fabpot/silex-skeleton",
+    "name"        : "kosssi/Silex-Skeleton",
+    "type"        : "library",
+    "description" : "A Silex Edition. This project is a base for your silex applications.",
+    "keywords"    : ["framework", "silex"],
+    "homepage"    : "http://github.com/kosssi/Silex-Skeleton",
+    "license"     : "MIT",
+    "authors"     : [
+        {
+            "name"  : "Simon Constans",
+            "email" : "kosssi@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=5.3.3",
-        "silex/silex": "1.0.*",
+        "silex/silex": "dev-master",
         "twig/twig": ">=1.8.0,<2.0-dev",
         "monolog/monolog": ">=1.0.0,<1.2-dev",
-        "symfony/browser-kit": "2.1.*",
-        "symfony/class-loader": "2.1.*",
         "symfony/config": "2.1.*",
         "symfony/console": "2.1.*",
         "symfony/css-selector": "2.1.*",
@@ -17,7 +26,9 @@
         "symfony/security": "2.1.*",
         "symfony/translation": "2.1.*",
         "symfony/twig-bridge": "2.1.*",
-        "symfony/validator": "2.1.*"
+        "symfony/validator": "2.1.*",
+        "doctrine/dbal": "2.2.*",
+        "fate/silex-extensions" : "dev-master"
     },
     "minimum-stability": "dev",
     "autoload": {
