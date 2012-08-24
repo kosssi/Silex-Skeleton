@@ -32,7 +32,7 @@ $app->get('/admin/account', function () use ($app) {
     }
 
     return $app['twig']->render('security/account.twig');
-});git branch 
+});
 
 /*
  * Pages static
