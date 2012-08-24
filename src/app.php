@@ -38,8 +38,9 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
  */
 
 $app['security.firewalls'] = array(
-    'admin' => array(
-        'pattern' => '^/admin/',
+    'all' => array(
+        'anonymous' => true,
+        'pattern' => '^.*$',
         'form' => array('login_path' => '/login', 'check_path' => '/admin/login_check'),
         'logout' => array('logout_path' => '/logout'),
         'users' => array(

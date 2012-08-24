@@ -3,9 +3,19 @@
         <ul id="menu" class="cadre">
             {% for route, page in app.pages %}
             <li{% if route == app.request.get('_route') %} class="actif"{% endif %}>
-                <a href="/{{ route }}">{{ page.name }}</a>
+                <a href="{{ path(route) }}">{{ page.name }}</a>
             </li>
             {% endfor %}
+
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <li>
+                <a href="{{ path('logout') }}">Logout</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{{ path('login') }}">Login</a>
+            </li>
+            {% endif %}
         </ul>
     </nav>
 </header>

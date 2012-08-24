@@ -24,9 +24,9 @@ $app->get('/login', function(Request $request) use ($app) {
         'error'         => $app['security.last_error']($request),
         'last_username' => $app['session']->get('_security.last_username'),
     ));
-});
+})->bind('login');
 
-$app->get('/admin/account', function () use ($app) {
+$app->get('/account', function () use ($app) {
     if (null === $user = getUser($app)) {
         return $app->redirect('/login');
     }
@@ -56,7 +56,7 @@ foreach ($pages as $route => $params) {
  */
 
 $app->get('/', function () use ($app) {
-    return $app->redirect('/index');
+    return $app->redirect($app['url_generator']->generate('index'));
 })->bind('homepage');
 
 $app->error(function (\Exception $e, $code) use ($app) {
